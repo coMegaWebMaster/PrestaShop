@@ -340,7 +340,7 @@ class AdminOrdersControllerCore extends AdminController
         if(Configuration::get('PS_API_KEY')){
             $api_key = 'key='.Configuration::get('PS_API_KEY').'&';
         }
-        $this->addJS('http://maps.google.com/maps/api/js?'.$api_key.'v=3.26');
+        $this->addJS('http'.((Configuration::get('PS_SSL_ENABLED') && Configuration::get('PS_SSL_ENABLED_EVERYWHERE')) ? 's' : '').'://maps.google.com/maps/api/js?'.$api_key.'v=3.exp');
 
         if ($this->tabAccess['edit'] == 1 && $this->display == 'view') {
             $this->addJS(_PS_JS_DIR_.'admin/orders.js');
